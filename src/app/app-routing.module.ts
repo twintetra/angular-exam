@@ -8,7 +8,7 @@ const routes: Routes = [
   {path: '', component: ListComponent},
   {path: 'user/:id', component: UserComponent},
   {path: '404', component: ErrorComponent},
-  {path: '**', redirectTo: '/404'}
+  {path: '**', redirectTo: '404'}
 ];
 
 @NgModule({

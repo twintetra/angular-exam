@@ -10,6 +10,7 @@ import {HttpService} from "../http.service";
 export class UserComponent implements OnInit, OnDestroy{
 
   constructor(private route: ActivatedRoute, public httpService: HttpService) {}
+
   id: number;
   private subscribe: any;
   formData = {
@@ -27,16 +28,19 @@ export class UserComponent implements OnInit, OnDestroy{
       name: ''
     }
   };
+  error;
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.subscribe = this.route.params.subscribe(params => {
       this.id = +params['id'];
     });
     this.httpService.getDataUser(this.id);
-    this.httpService.jsonUser.subscribe((data) => this.formData = data);
+    this.httpService.jsonUser.subscribe(
+      (data) => this.formData = data,
+      error => {this.error = error.message;});
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subscribe.unsubscribe();
   }
 }
