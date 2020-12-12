@@ -1,0 +1,12 @@
+<h3>Страница со списком</h3>
+<mat-expansion-panel hideToggle *ngFor="let item of httpService.jsonPosts | async">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{item.title}}
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <p><strong>body:</strong> {{item.body}}</p>
+  <a [routerLink]="['user', item.userId]"><strong>userId</strong></a>
+</mat-expansion-panel>
+
+

@@ -1,0 +1,16 @@
+.form--position, .container {
+  margin: 20px;
+}
+
+.back-btn {font-size: 20px}
+
+.form {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.form input {
+  font-size: 20px;
+  width: 700px;
+}
